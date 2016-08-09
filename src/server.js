@@ -4,8 +4,13 @@ const express = require('express');
 const PORT = process.env.HTTP_PORT;
 
 const app = express();
-app.get('/', function (req, res) {
-  res.send('FE Hello World!\n');
+
+app.use(
+	express.static('public')
+);
+
+app.get('/server', function (req, res) {
+  res.send('FE Hello World! (server)\n');
 	console.log("ping");
 });
 
